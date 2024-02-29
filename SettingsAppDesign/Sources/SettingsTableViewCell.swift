@@ -36,7 +36,7 @@ class SettingsTableViewCell: UITableViewCell {
 
     private lazy var backgroundIcons: UIView = {
         let view = UIView()
-        view.layer.cornerRadius = 7
+        view.layer.cornerRadius = Constants.colorIconCornerRadius
         return view
     }()
 
@@ -49,7 +49,7 @@ class SettingsTableViewCell: UITableViewCell {
 
     private lazy var nameCell: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: Constants.fontSize, weight: .regular)
         return label
     }()
 
@@ -78,18 +78,31 @@ class SettingsTableViewCell: UITableViewCell {
         iconCell.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
-            make.height.width.equalTo(23)
+            make.height.width.equalTo(Constants.iconSize)
         }
 
         backgroundIcons.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.left.equalTo(contentView).offset(20)
-            make.height.width.equalTo(33)
+            make.left.equalTo(contentView).offset(Constants.iconBackgroundLeadingOffset)
+            make.height.width.equalTo(Constants.backgroundIconSize)
         }
 
         nameCell.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.left.equalTo(backgroundIcons.snp.right).offset(20)
+            make.left.equalTo(backgroundIcons.snp.right).offset(Constants.nameCellLeadingOffset)
         }
+    }
+}
+
+// MARK: - Constants
+
+extension SettingsTableViewCell {
+    struct Constants {
+        static let colorIconCornerRadius: CGFloat = 7
+        static let iconSize: CGFloat = 23
+        static let backgroundIconSize: CGFloat = 33
+        static let iconBackgroundLeadingOffset: CGFloat = 20
+        static let nameCellLeadingOffset: CGFloat = 20
+        static let fontSize: CGFloat = 16
     }
 }

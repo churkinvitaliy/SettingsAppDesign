@@ -37,7 +37,15 @@ class SwitchTableViewCell: SettingsTableViewCell {
         super.setupLayout()
         switchControl.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.right.equalTo(contentView).inset(20)
+            make.right.equalTo(contentView).inset(Constants.switchControlTrailingOffset)
         }
+    }
+}
+
+// MARK: - Constants
+
+extension SwitchTableViewCell {
+    struct Constants {
+        static let switchControlTrailingOffset: CGFloat = 20
     }
 }

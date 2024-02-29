@@ -27,7 +27,7 @@ class TextStatusTableViewCell: SettingsTableViewCell {
 
     private lazy var textStatus: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: Constants.textStatusFontSize, weight: .regular)
         label.textColor = .systemGray
         label.textAlignment = .left
         return label
@@ -56,7 +56,16 @@ class TextStatusTableViewCell: SettingsTableViewCell {
         super.setupLayout()
         textStatus.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.right.equalTo(contentView).inset(20)
+            make.right.equalTo(contentView).inset(Constants.textStatusTrailingOffset)
         }
+    }
+}
+
+// MARK: - Constants
+
+extension TextStatusTableViewCell {
+    struct Constants {
+        static let textStatusFontSize: CGFloat = 15
+        static let textStatusTrailingOffset: CGFloat = 20
     }
 }

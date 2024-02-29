@@ -18,10 +18,10 @@ class SettingsScreenViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
 
-        let topInset: CGFloat = 20
+        let topInset: CGFloat = Constants.tableViewTopInset
         tableView.contentInset = UIEdgeInsets(top: topInset, left: 0, bottom: 0, right: 0)
 
-        let separatorView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 1))
+        let separatorView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: Constants.tableViewSeparatorHeight))
         separatorView.backgroundColor = UIColor.systemGray4
 
         tableView.tableHeaderView = separatorView
@@ -56,10 +56,22 @@ class SettingsScreenViewController: UIViewController {
     }
 }
 
+// MARK: - Constants
+
+extension SettingsScreenViewController {
+    struct Constants {
+        static let tableViewTopInset: CGFloat = 20
+        static let tableViewSeparatorHeight: CGFloat = 1
+        static let tableViewRowHeight: CGFloat = 44
+    }
+}
+
+// MARK: - Delegate, DataSource
+
 extension SettingsScreenViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        44.7
+        Constants.tableViewRowHeight
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {

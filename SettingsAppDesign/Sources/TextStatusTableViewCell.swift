@@ -2,18 +2,15 @@ import UIKit
 import SnapKit
 
 class TextStatusTableViewCell: SettingsTableViewCell {
-    
+
     // MARK: - Properties
 
-    // Просто статичный текст для отображения в ячейке!
     override var setting: Setting? {
         didSet {
             if let setting = setting {
-                switch setting.nameSetting {
-                case "WiFi":
-                    textStatus.text = "Не подключено"
-                case "Bluetooth":
-                    textStatus.text = "Вкл."
+                switch setting.type {
+                case .statusSetting(let statusText):
+                    textStatus.text = statusText
                 default:
                     break
                 }

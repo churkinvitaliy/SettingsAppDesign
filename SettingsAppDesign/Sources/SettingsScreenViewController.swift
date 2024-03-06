@@ -5,7 +5,7 @@ class SettingsScreenViewController: UIViewController {
 
     // MARK: - Properties
 
-    private var settings: [[Setting]]?
+    private var settings = [[Setting]]()
 
     // MARK: - Outlets
 
@@ -43,6 +43,7 @@ class SettingsScreenViewController: UIViewController {
     private func setupView() {
         view.backgroundColor = .white
         title = "Настройки"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     private func setupHierarchy() {
@@ -51,7 +52,8 @@ class SettingsScreenViewController: UIViewController {
 
     private func setupLayout() {
         tableView.snp.makeConstraints { make in
-            make.top.left.bottom.right.equalToSuperview()
+            make.top.equalTo(view.snp.top).offset(Constants.topMarginTable)
+            make.left.bottom.right.equalToSuperview()
         }
     }
 }
@@ -60,6 +62,7 @@ class SettingsScreenViewController: UIViewController {
 
 extension SettingsScreenViewController {
     struct Constants {
+        static let topMarginTable: CGFloat = 20
         static let tableViewTopInset: CGFloat = 20
         static let tableViewSeparatorHeight: CGFloat = 1
         static let tableViewRowHeight: CGFloat = 44
@@ -75,35 +78,35 @@ extension SettingsScreenViewController: UITableViewDelegate, UITableViewDataSour
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        settings?.count ?? 0
+        settings.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        settings?[section].count ?? 0
+        settings[section].count
     }
 
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        guard let setting = settings?[indexPath.section][indexPath.row] else {
+        let setting = settings[indexPath.section][indexPath.row]
+
+        if case .switchSetting = setting.type {
             return false
         }
 
-        return !setting.hasSwitch
+        return true
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let setting = settings?[indexPath.section][indexPath.row] else {
-            return UITableViewCell()
-        }
+        let setting = settings[indexPath.section][indexPath.row]
 
-        if setting.hasSwitch {
+        switch setting.type {
+        case .switchSetting:
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: SwitchTableViewCell.сellIdentifier,
                 for: indexPath
             ) as? SwitchTableViewCell ?? SwitchTableViewCell()
             cell.setting = setting
             return cell
-
-        } else if setting.hasStatus {
+        case .statusSetting(let statusText):
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: TextStatusTableViewCell.сellIdentifier,
                 for: indexPath
@@ -111,8 +114,7 @@ extension SettingsScreenViewController: UITableViewDelegate, UITableViewDataSour
             cell.setting = setting
             cell.accessoryType = .disclosureIndicator
             return cell
-
-        } else {
+        default:
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: SettingsTableViewCell.сellIdentifier,
                 for: indexPath
@@ -126,7 +128,7 @@ extension SettingsScreenViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let detailVC = DetailViewController()
-        let setting = settings?[indexPath.section][indexPath.row]
+        let setting = settings[indexPath.section][indexPath.row]
         detailVC.setting = setting
         navigationController?.pushViewController(detailVC, animated: true)
     }

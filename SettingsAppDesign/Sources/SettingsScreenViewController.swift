@@ -100,25 +100,31 @@ extension SettingsScreenViewController: UITableViewDelegate, UITableViewDataSour
 
         switch setting.type {
         case .switchSetting:
-            let cell = tableView.dequeueReusableCell(
+
+            guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: SwitchTableViewCell.сellIdentifier,
                 for: indexPath
-            ) as? SwitchTableViewCell ?? SwitchTableViewCell()
+            ) as? SwitchTableViewCell else { return UITableViewCell() }
+
             cell.setting = setting
             return cell
-        case .statusSetting(let statusText):
-            let cell = tableView.dequeueReusableCell(
+        case .statusSetting(_):
+
+            guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: TextStatusTableViewCell.сellIdentifier,
                 for: indexPath
-            ) as? TextStatusTableViewCell ?? TextStatusTableViewCell()
+            ) as? TextStatusTableViewCell else { return UITableViewCell() }
+
             cell.setting = setting
             cell.accessoryType = .disclosureIndicator
             return cell
         default:
-            let cell = tableView.dequeueReusableCell(
+
+            guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: SettingsTableViewCell.сellIdentifier,
                 for: indexPath
-            ) as? SettingsTableViewCell ?? SettingsTableViewCell()
+            ) as? SettingsTableViewCell else { return UITableViewCell() }
+
             cell.setting = setting
             cell.accessoryType = .disclosureIndicator
             return cell

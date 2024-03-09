@@ -6,6 +6,7 @@ class SettingsScreenViewController: UIViewController {
     // MARK: - Properties
 
     private var settings = [[Setting]]()
+    private var settingsModel = SettingsModel()
 
     // MARK: - Outlets
 
@@ -32,7 +33,7 @@ class SettingsScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        settings = Setting.settings
+        settings = settingsModel.getSettings()
         setupView()
         setupHierarchy()
         setupLayout()

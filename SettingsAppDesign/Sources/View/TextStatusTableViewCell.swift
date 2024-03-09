@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-class TextStatusTableViewCell: SettingsTableViewCell {
+final class TextStatusTableViewCell: SettingsTableViewCell {
 
     // MARK: - Properties
 
@@ -61,7 +61,7 @@ class TextStatusTableViewCell: SettingsTableViewCell {
 // MARK: - Constants
 
 extension TextStatusTableViewCell {
-    struct Constants {
+    private struct Constants {
         static let textStatusFontSize: CGFloat = 15
         static let textStatusTrailingOffset: CGFloat = 20
     }

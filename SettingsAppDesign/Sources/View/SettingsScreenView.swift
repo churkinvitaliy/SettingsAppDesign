@@ -5,7 +5,7 @@ protocol SettingsScreenViewDelegate: AnyObject {
     func didSelectSetting(_ setting: Setting)
 }
 
-class SettingsScreenView: UIView {
+final class SettingsScreenView: UIView {
 
     // MARK: - Properties
 
@@ -72,7 +72,7 @@ class SettingsScreenView: UIView {
 // MARK: - Constants
 
 extension SettingsScreenView {
-    struct Constants {
+    private struct Constants {
         static let topMarginTable: CGFloat = 20
         static let tableViewTopInset: CGFloat = 20
         static let tableViewSeparatorHeight: CGFloat = 1

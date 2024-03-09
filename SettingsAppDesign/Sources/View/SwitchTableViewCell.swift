@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-class SwitchTableViewCell: SettingsTableViewCell {
+final class SwitchTableViewCell: SettingsTableViewCell {
 
     // MARK: - Properties
 
@@ -45,7 +45,7 @@ class SwitchTableViewCell: SettingsTableViewCell {
 // MARK: - Constants
 
 extension SwitchTableViewCell {
-    struct Constants {
+    private struct Constants {
         static let switchControlTrailingOffset: CGFloat = 20
     }
 }

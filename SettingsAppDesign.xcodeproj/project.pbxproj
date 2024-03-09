@@ -49,6 +49,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F2CDAC62B9CA4A800A397F7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0F0EA5F02B8D672500AD3BA4 /* SettingsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0F2CDAC72B9CA4B300A397F7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0F0EA5EE2B8D638E00AD3BA4 /* SettingsTableViewCell.swift */,
+				0F93E1912B8D8F8B002E9F4A /* SwitchTableViewCell.swift */,
+				0F93E1932B8F8896002E9F4A /* TextStatusTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0F2CDAC82B9CA4C200A397F7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0F0EA5EC2B8CE72700AD3BA4 /* DetailViewController.swift */,
+				0FA3987A2B76263900A71A27 /* SettingsScreenViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		0FA3986A2B76263900A71A27 = {
 			isa = PBXGroup;
 			children = (
@@ -87,12 +114,9 @@
 		0FA3988B2B76264900A71A27 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				0FA3987A2B76263900A71A27 /* SettingsScreenViewController.swift */,
-				0F0EA5EC2B8CE72700AD3BA4 /* DetailViewController.swift */,
-				0F0EA5EE2B8D638E00AD3BA4 /* SettingsTableViewCell.swift */,
-				0F93E1912B8D8F8B002E9F4A /* SwitchTableViewCell.swift */,
-				0F93E1932B8F8896002E9F4A /* TextStatusTableViewCell.swift */,
-				0F0EA5F02B8D672500AD3BA4 /* SettingsModel.swift */,
+				0F2CDAC82B9CA4C200A397F7 /* Controller */,
+				0F2CDAC72B9CA4B300A397F7 /* View */,
+				0F2CDAC62B9CA4A800A397F7 /* Model */,
 			);
 			path = Sources;
 			sourceTree = "<group>";

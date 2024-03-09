@@ -97,7 +97,7 @@ class SettingsTableViewCell: UITableViewCell {
 // MARK: - Constants
 
 extension SettingsTableViewCell {
-    struct Constants {
+    private struct Constants {
         static let colorIconCornerRadius: CGFloat = 7
         static let iconSize: CGFloat = 23
         static let backgroundIconSize: CGFloat = 33

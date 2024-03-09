@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-class SettingsScreenViewController: UIViewController {
+final class SettingsScreenViewController: UIViewController {
 
     // MARK: - Properties
 

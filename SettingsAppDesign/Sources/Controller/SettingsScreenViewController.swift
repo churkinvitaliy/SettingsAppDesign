@@ -12,14 +12,16 @@ final class SettingsScreenViewController: UIViewController {
 
     // MARK: - Lifecycle
 
-    override func loadView() {
-        view = SettingsScreenView()
-        settingsScreenView?.delegate = self
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        setupView()
+    }
+
+    // MARK: - Setups
+
+    private func setupView() {
+        view = SettingsScreenView()
+        settingsScreenView?.delegate = self
         title = "Настройки"
         navigationController?.navigationBar.prefersLargeTitles = true
     }

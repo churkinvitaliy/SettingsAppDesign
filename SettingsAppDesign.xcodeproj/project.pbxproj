@@ -29,8 +29,7 @@
 		0F0EA5EE2B8D638E00AD3BA4 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		0F0EA5F02B8D672500AD3BA4 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		0F2CDACD2B9CA6AB00A397F7 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		0F2CDACF2B9CAAC100A397F7 /* SettingsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreenView.swift; sourceTree = "<group>"; };
-		0F2CDB062B9DE47000A397F7 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		0F2CDACF2B9CAAC100A397F7 /* SettingsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreenView.swift; sourceTree = "<group>"; };		0F2CDB062B9DE47000A397F7 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		0F93E1912B8D8F8B002E9F4A /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		0F93E1932B8F8896002E9F4A /* TextStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStatusTableViewCell.swift; sourceTree = "<group>"; };
 		0FA398732B76263900A71A27 /* SettingsAppDesign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SettingsAppDesign.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +124,8 @@
 			children = (
 				0F2CDAC72B9CA4B300A397F7 /* View */,
 				0F2CDAC82B9CA4C200A397F7 /* Controller */,
+				0F2CDAC82B9CA4C200A397F7 /* Controller */,
+				0F2CDAC72B9CA4B300A397F7 /* View */,
 				0F2CDAC62B9CA4A800A397F7 /* Model */,
 			);
 			path = Sources;
